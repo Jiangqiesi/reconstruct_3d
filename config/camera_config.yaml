@@ -1,0 +1,43 @@
+# Camera Configuration
+# These are default values for Intel RealSense D435
+# Update with your actual camera intrinsics after calibration
+
+camera:
+  # Image resolution
+  width: 640
+  height: 480
+  
+  # Depth settings
+  depth_scale: 0.001  # Convert depth to meters (RealSense default: 0.001)
+  depth_trunc: 3.0    # Maximum depth in meters
+  min_depth: 0.2      # Minimum valid depth in meters
+
+  # Intrinsic parameters (will be overwritten by camera SDK)
+  fx: 615.0
+  fy: 615.0
+  cx: 320.0
+  cy: 240.0
+
+# Hand-eye calibration result
+# T_flange_cam: transformation from robot flange to camera
+# This will be populated after calibration
+hand_eye:
+  calibration_file: "hand_eye_calibration.npy"
+
+# TSDF fusion parameters
+tsdf:
+  voxel_length: 0.002     # 2mm voxel size
+  sdf_trunc: 0.01         # 10mm truncation distance
+  
+# Trajectory parameters
+trajectory:
+  center: [0.5, 0.0, 0.1]  # Object center in robot base frame [x, y, z]
+  radius: 0.4              # Distance from object center
+  num_views: 30            # Number of viewpoints
+  elevation_range: [20, 70] # Elevation angle range in degrees
+
+# Robot configuration (Realman RM75)
+robot:
+  ip: "192.168.0.17"
+  port: 8080
+  thread_mode: "triple"  # Use triple thread mode for better stability
