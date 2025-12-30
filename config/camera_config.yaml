@@ -3,8 +3,8 @@
 # Update with your actual camera intrinsics after calibration
 
 camera:
-  # Image resolution
-  width: 640
+  # Image resolution - 更新为实际分辨率
+  width: 848
   height: 480
   
   # Depth settings
@@ -12,11 +12,15 @@ camera:
   depth_trunc: 3.0    # Maximum depth in meters
   min_depth: 0.2      # Minimum valid depth in meters
 
-  # Intrinsic parameters (will be overwritten by camera SDK)
-  fx: 615.0
-  fy: 615.0
-  cx: 320.0
-  cy: 240.0
+  # Intrinsic parameters - 更新为实际内参
+  fx: 432.2227783203125
+  fy: 432.2227783203125
+  cx: 413.2311706542969
+  cy: 243.76449584960938
+  
+  # Distortion parameters - 添加畸变参数
+  distortion_model: "brown_conrady"
+  distortion_coeffs: [0.0, 0.0, 0.0, 0.0, 0.0]  # [k1, k2, p1, p2, k3]
 
 # Hand-eye calibration result
 # T_flange_cam: transformation from robot flange to camera
